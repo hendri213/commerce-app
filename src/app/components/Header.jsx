@@ -1,53 +1,48 @@
 "use client"
 
-import { useState } from 'react'
-import { BsCart } from 'react-icons/bs';
-import { BiSearch } from 'react-icons/bi';
+import React from 'react'
+import { BsCart, BsSearch } from 'react-icons/bs';
 
 const Header = () => {
-  const [open, setOpen] = useState(false)
-
   return (
-    <div className="fixed left-0 top-0 w-full px-10 py-4">
-      <div className='md:flex items-center justify-between'>
+    <div className="fixed inset-x-0 top-0 w-full">
+      <div className="box-between md:px-10 px-7 py-4">
 
-        {/* name / brand */}
-        <div>
-          <a className='text-3xl  text-blue-600 px-4 py-4 font-bold' href="#home">Shoppedia</a>
+          {/* name brand */}
+        <div className="box-equal">
+          <a className="font-bold text-5xl text-blue-600" href="#">Shoppedia</a>
         </div>
 
         {/* search feature */}
-        <div className="md:flex relative hidden">
-          <div className='absolute inset-y-0 left-0 flex items-center pl-3'>
-           <BiSearch />
+        <div className="box-equal relative">
+          <div className='absolute inset-y-0 pl-3 box-equal pointer-events-none text-gray-500 dark:text-gray-400'>
+            <BsSearch className="w-5 h-5" />
           </div>
-          <input className="block w-[1200px] p-2 pl-10
-          focus:outline-none
-          focus:border-blue-500 focus:ring-blue-500 text-sm text-gray-900 border border-gray-300 rounded-lg" type="text" placeholder="cari di shoppedia" />
+          <input className='md:w-[1000px] rounded-lg p-2 pl-10 text-sm text-gray-900 border border-gray-300' type="text" placeholder='cari di shoppedia' />
         </div>
 
-        {/* link / navigation */}
-        <div className='md:flex hidden'>
-          <ul className="flex">
-            <li className='px-2 py-2'>
-              <BsCart className="w-[25px] h-[25px]" />
+        {/* link navigation */}
+        <div className="box-equal">
+          <ul className='box-equal'>
+            <li className="md:ml-4">
+              <a href="#">
+                <BsCart className="w-[25px] h-[25px]" />
+              </a>
             </li>
-            <li className='border  border-slate-200 md:ml-6'>
-            </li>
-            <li className='md:ml-6'>
-              <button className='border  border-blue-600 py-2 px-4 text-sm text-blue-600 font-bold rounded-lg'>
+            <li className="md:ml-8">
+              <a className="font-bold text-blue-600 border border-blue-600 px-8 py-2 rounded-lg text-sm" href="#">
                 Masuk
-              </button>
+              </a>
             </li>
-            <li className='md:ml-2'>
-              <button className='text-sm text-white bg-blue-600 font-bold px-4 py-2 rounded-lg'>
+            <li className="md:ml-2">
+              <a  className="font-bold text-white border bg-blue-600 px-8 py-2 rounded-lg text-sm" href="#">
                 Daftar
-              </button>
+              </a>
             </li>
           </ul>
         </div>
-        
       </div>
+
     </div>
   )
 }
